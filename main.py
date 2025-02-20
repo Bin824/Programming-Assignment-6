@@ -4,6 +4,8 @@ Email: bin.ni81@myhunter.cuny.edu
 Resources: None
 """
 
+import string
+
 def find_longest_words(input_filename, output_filename):
     """
     This function reads each line of the input file and writes the longest word
@@ -14,7 +16,7 @@ def find_longest_words(input_filename, output_filename):
         for line in infile:
             words = line.split()
             if words:
-                longest_word = max(words, key=lambda word: len(word.strip(".,!?")))
+                longest_word = max(words, key=lambda word: len(word.strip(string.punctuation)))
                 outfile.write(longest_word + '\n')
 
 if __name__ == "__main__":
