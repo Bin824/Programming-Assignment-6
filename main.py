@@ -18,6 +18,6 @@ def find_longest_word(input_filename, output_filename):
                 outfile.write(longest_word + '\n')
 
 if __name__ == "__main__":
-    input_file = input("Enter your input file name: ")
-    output_file = input("Enter your output file name: ")
+    input_file = input("Enter the input file name: ")
+    output_file = input("Enter the output file name: ")
     find_longest_word(input_file, output_file)
