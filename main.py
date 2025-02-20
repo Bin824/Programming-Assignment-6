@@ -4,38 +4,20 @@ Email: bin.ni81@myhunter.cuny.edu
 Resources: None
 """
 
-def find_longest_word(line):
+def find_longest_word(input_filename, output_filename):
     """
-    Finds and returns the longest word in a given line.
-    If multiple words have the same length, the first occurring word is returned.
+    This function reads each line of the input file and writes the longest word
+    into the output file. In case there are multiple longest words, the first one is written.
     """
-    words = line.split()
-    longest_word = max(words, key=len)
-    return longest_word
-
-def open_files(input_filename, output_filename):
-    """
-    Reads the input file line by line, finds the longest word in each line,
-    and writes it to the output file.
-    If the input file is not found, an error message is displayed.
-    """
-    try:
-        with open(input_filename, 'r', encoding='utf-8') as in_file:
-            with open(output_filename, 'w', encoding='utf-8') as out_file:
-                for line in in_file:
-                    longest_word = find_longest_word(line)
-                    if longest_word:
-                        out_file.write(longest_word + '\n')
-    except FileNotFoundError:
-        print("Error: The input file was not found.")
-
-def main():
-    """
-    Prompts the user for input and output file names
-    """
-    input_filename = input("Enter your input file name: ")
-    output_filename = input("Enter your output file name: ")
-    open_files(input_filename, output_filename)
+    with open(input_filename, 'r', encoding='utf-8') as infile, \
+         open(output_filename, 'w', encoding='utf-8') as outfile:
+        for line in infile:
+            words = line.split()
+            if words:
+                longest_word = max(words, key=len)
+                outfile.write(longest_word + '\n')
 
 if __name__ == "__main__":
-    main()
+    input_file = input("Enter your input file name: ")
+    output_file = input("Enter your output file name: ")
+    find_longest_word(input_file, output_file)
