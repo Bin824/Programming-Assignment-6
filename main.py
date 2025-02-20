@@ -33,8 +33,8 @@ def main():
     """
     Prompts the user for input and output file names
     """
-    input_filename = input("Enter your input file name: ").strip()
-    output_filename = input("Enter your output file name: ").strip()
+    input_filename = input("Enter your input file name: ")
+    output_filename = input("Enter your output file name: ")
     open_files(input_filename, output_filename)
 
 if __name__ == "__main__":
