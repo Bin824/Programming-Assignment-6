@@ -14,10 +14,10 @@ def find_longest_words(input_filename, output_filename):
         for line in infile:
             words = line.split()
             if words:
-                longest_word = max(words, key=lambda word: len(word.strip(".,!?'")))
+                longest_word = max(words, key=lambda word: len(word.strip(".,!?")))
                 outfile.write(longest_word + '\n')
 
 if __name__ == "__main__":
-    input_file = input("Enter your input file name: ")
-    output_file = input("Enter your output file name: ")
+    input_file = input("Enter the input file name: ")
+    output_file = input("Enter the output file name: ")
     find_longest_words(input_file, output_file)
